@@ -1,6 +1,7 @@
 import Topo from "./Topo";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom"
 
 function Items({id, films, url}){
 
@@ -33,7 +34,12 @@ export default function Filme(){
             <div className="title">
                 <ul>    
                 {items.map((item) => (
-                    <Items key={item.id} url={item.url} films={item.films}/>
+                    <Filme>
+                        <Items key={item.id} url={item.url} films={item.films}/>
+                        <Link to={`item/${item.id}`}>/  
+                        <img src={item.posterURL} alt={item.title}/>
+                        </Link>
+                    </Film>    
                 ))}          
                 </ul>
             </div>
