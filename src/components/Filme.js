@@ -3,18 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom"
 
-function Items({id, films, url}){
 
-    return(
-        <div className="Items">
-            <img src={url} />
-            <div className="text">{films}</div>
-            <div>{id}</div>
-        </div>
-    );
-}
-
-export default function Filme(){
+export default function Filme({setarFilme}){
 
     const [items, setItems] = useState([]);
 
@@ -23,6 +13,7 @@ export default function Filme(){
 
 		requisicao.then(resposta => {
 			setItems(resposta.data);
+            console.log("requisicaodeucerto");
 		}); 
 	}, []);
 
@@ -32,16 +23,15 @@ export default function Filme(){
             <Topo />
             <div className="generic">Selecione o filme</div>
             <div className="title">
-                <ul>    
-                {items.map((item) => (
-                    <Filme>
-                        <Items key={item.id} url={item.url} films={item.films}/>
+                   
+                {items.map(item => 
+                    < div className="caixa" onClick={() => setarFilme(item)}>
                         <Link to={`item/${item.id}`}>/  
                         <img src={item.posterURL} alt={item.title}/>
                         </Link>
-                    </Film>    
-                ))}          
-                </ul>
+                    </div>
+                )}          
+                
             </div>
         </div>
 

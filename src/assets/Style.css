@@ -43,6 +43,26 @@
 
 }
 
+.caixa {
+    width:40%;
+    height: 200px;
+    margin: 5% 5%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    
+}
+
+img{
+    width: 95%;
+    height: 95%;    
+}
+
 .Corpo{
     display: flex;
     flex-direction: column;
